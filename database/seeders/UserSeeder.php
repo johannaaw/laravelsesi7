@@ -15,16 +15,16 @@ class UserSeeder extends Seeder
     public function run(): void
     {
         //
-        $user = User::create([
+        $user = User::updateOrCreate([
             'name' => 'Anderies',
             'email' => 'anderies@example.com',
             'password' => bcrypt('password'),
         ]);
 
         // Create related profile
-        $user->profile()->create([
+        $user->profile()->updateOrCreate([
             'phone' => '08123456789',
-            'bio' => 'Lecturer amd tech enthusiast.',
+            'bio' => 'Lecturer and tech enthusiast.',
         ]);
     }
 }
